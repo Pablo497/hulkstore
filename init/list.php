@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sistema de inventario -  HulkStore</title>
-	<link rel="stylesheet" href="/HulkStore/styles/style.css">
+	<link rel="stylesheet" href="/styles/style.css">
 	<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </head>
 <body class="dashboard-page">
@@ -17,7 +17,7 @@
 			</div>
       	<div class="main-menu">
 	        <nav>
-	          <a href="/HulkStore/init/list.php">Productos</a>
+	          <a href="/init/list.php">Productos</a>
 	    	</nav>	
     	</div>
 
@@ -38,8 +38,8 @@
 			<div id="Modal" class="modal">
 			  <div class="modal__contenido">
 			    <a href="#">X</a>
-			    <h2>Mi primer Modal</h2>
-			    <p>Este es mi primera ventana modal sin utilizar Js</p>
+			    <h2>Modal Title</h2>
+			    <p>Modal sin JS. Formulario añadir nuevo producto</p>
 			  </div>  
 			</div>
 			<table class="product-list__table">
