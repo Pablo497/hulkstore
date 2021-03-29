@@ -1,5 +1,11 @@
-*{margin: 0; box-sizing: border-box; outline: red;}
+*{margin: 0; box-sizing: border-box; }
 a{text-decoration: none;}
+
+body{
+    --GridDisplay: grid;
+    --PrimaryColor: rgba(27,19,74,1.0);
+}
+
 
 /**** DASHBOARD & BACKEND STYLES ****/
 
@@ -14,20 +20,22 @@ a{text-decoration: none;}
 /*MENU*/
 
 .menu{
-	display: grid;
+	display: (--GridDisplay);
 	grid-template-rows: repeat(4, 1fr);
 	height: 100vh;
 	background-color: #e5e5e5;
 	font-family: Arial, sans-serif;
 }
 
-.menu a{
+.menu__link{
 	text-decoration: none;
-	color: #fff;
+	color: #000;
 	display: block;
 	text-align: center;
 	margin-bottom: 10px;
 }
+
+.menu__logo{ margin:25px; width: 80%;}
 
 .second-menu{ margin-top: 40px; }
 /*END MENU*/
@@ -56,11 +64,13 @@ a{text-decoration: none;}
 
 .product-list{
 	font-family: Arial, sans-serif;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    display: var(--GridDisplay);
+    grid-template-rows: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
 }
+
+.product-list__link{text-decoration: underline;}
 
   /*Listado de productos*/
 
@@ -69,6 +79,20 @@ a{text-decoration: none;}
   text-align: center;
   width: 50%;
   border-collapse:collapse;
+}
+
+.product-list__table-header{
+  background-color: var(--PrimaryColor);
+  color: #ffffff;
+  border-bottom: 5px solid #0f362D;
+}
+
+.product-list__table-body--link{
+    background-color: blue; 
+    font-size: 12px; 
+    padding: 5.5px; 
+    color: #fff; 
+    border-radius: 5px;
 }
 
 th, td{ padding: 8px; }
@@ -86,16 +110,11 @@ th:last-child { border-top-right-radius: 5px; }
 tr:last-child td:first-child { border-bottom-left-radius: 5px; }
 tr:last-child td:last-child { border-bottom-right-radius: 5px; }
 
-.product-list__table-header{
-  background-color: #03e703; 
-  border-bottom: 5px solid #0f362D;
-}
-
 tr:nth-child(even){  background-color: #ddd; }
-tr td{ color: #0B014A; font-weight: bold; font-size:15px;}
-tr:hover td{background-color: #369681; color: blue;}
+tr td{ color: #000; font-weight: bold; font-size:15px;}
+tr:hover td{background-color: #54b5fe; color: var(--PrimaryColor);}
 
-	/*Ventana modal argumentos*/
+/*Modal form*/
 
 .modal{
   background-color: rgba(0,0,0,.8);
@@ -129,17 +148,30 @@ tr:hover td{background-color: #369681; color: blue;}
 
 /*Kardex.php*/
 
-.kardex{
-	padding: 20px;
-	margin: 0 50px;
+.kardex{ padding: 20px;	margin: 0 50px; }
+
+.kardex__first-table, .kardex__first-table--head, .kardex__first-table--body{
+    display: var(--GridDisplay);
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
 }
 
-.kardex__table-first{
-	display: grid;
+.kardex__first-table{
 	grid-template-columns: repeat(4, 1fr);
 	font-weight: bold;
 	text-align: center;
-	align-items: center;
+}
+
+.kardex__first-table--head{
+    background-color: #0B014A;
+    color: #ffffff; 
+    height: 50px;
+}
+
+.kardex__first-table--body{
+    background-color: #E5E5E5; 
+    height: 35px;
 }
 
 /*END Kardex.php*/
@@ -153,26 +185,34 @@ tr:hover td{background-color: #369681; color: blue;}
 	.dashboard-page{ grid-template-columns: repeat(1, 1fr); }	
 
 	.menu{ height: 25vh; }
+	.menu__cont-logo{
+	    display: var(--GridDisplay);
+	    justify-items: center;
+	    margin: 20px;
+	    width: 30vh;
+	    height: 15vh;
+	}
 
 	.kardex{ padding: 10px; margin: 0 30px;	}
   
+    .product-list{ grid-template-rows:30% 15% 95%; }
    	.product-list__table { width:100%; }
    	.product-list__table-header { display: none; }
    
    	tr:nth-of-type(2n) { background-color: inherit; }
    
    	tr td:first-child {
-       background: #f0f0f0;
-       font-weight:bold;
-       font-size:1.3em;
-       margin-top: 2px;
+	       background: #f0f0f0;
+	       font-weight:bold;
+	       font-size:1.3em;
+	       margin-top: 2px;
    	}
    
    	.product-list__table-body td { display: block; text-align:center; }
    
    	.product-list__table-body td:before {
-       content: attr(data-th);
-       display: block;
-       text-align:center;
+	       content: attr(data-th);
+	       display: block;
+	       text-align:center;
    	}
 }
